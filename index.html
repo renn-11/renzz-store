@@ -1,0 +1,3179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff5ca8">
+<meta name="description" content="Renzz Store - Roblox Top Up">
+<title>Renzz Store — Roblox Top Up</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root{
+  --pink:#ff5ca8;
+  --pink2:#ff9ac9;
+  --purple:#a875ff;
+  --dark:#28232c;
+  --muted:#8b8490;
+  --white:#fff;
+  --bg:#fffafd;
+  --soft:#fff2f8;
+  --line:#f0e5ec;
+  --green:#52b878;
+  --shadow:0 20px 65px rgba(67,32,60,.10);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Poppins,Arial,sans-serif;
+  color:var(--dark);
+  background:
+    radial-gradient(circle at 5% 0%,rgba(255,92,168,.15),transparent 27%),
+    radial-gradient(circle at 96% 5%,rgba(168,117,255,.14),transparent 27%),
+    var(--bg);
+  overflow-x:hidden;
+}
+
+button,input,select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+button:disabled{
+  cursor:not-allowed;
+  opacity:.5;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1120px,calc(100% - 28px));
+  margin:auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:72px;
+  background:rgba(255,255,255,.80);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid rgba(235,221,230,.7);
+}
+
+.nav{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Baloo 2";
+  font-size:24px;
+  font-weight:800;
+}
+
+.logo{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  border-radius:15px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  box-shadow:0 10px 28px rgba(255,92,168,.25);
+  animation:logoFloat 2.7s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+  0%,100%{
+    transform:translateY(0) rotate(0);
+  }
+  50%{
+    transform:translateY(-4px) rotate(3deg);
+  }
+}
+
+.navlinks{
+  display:flex;
+  gap:4px;
+}
+
+.navlinks button{
+  border:0;
+  background:transparent;
+  color:#756e79;
+  padding:10px 13px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.navlinks button:hover{
+  color:var(--pink);
+  background:var(--soft);
+}
+
+.menu{
+  display:none;
+  border:0;
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  background:#f7f2f6;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+  display:none;
+  min-height:calc(100vh - 72px);
+  padding:45px 0;
+}
+
+.page.active{
+  display:block;
+  animation:pageIn .32s ease;
+}
+
+@keyframes pageIn{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:600px;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  align-items:center;
+  gap:50px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 13px;
+  border-radius:99px;
+  background:#fff0f7;
+  color:var(--pink);
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:17px;
+}
+
+.hero h1{
+  font-family:"Baloo 2";
+  font-size:clamp(52px,7vw,80px);
+  line-height:.88;
+  letter-spacing:-2px;
+  margin-bottom:22px;
+}
+
+.gradient{
+  background:linear-gradient(100deg,var(--pink),var(--purple));
+  color:transparent;
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+
+.hero p{
+  max-width:575px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.btn{
+  border:0;
+  border-radius:15px;
+  padding:13px 19px;
+  font-size:12px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  box-shadow:0 13px 30px rgba(255,92,168,.22);
+}
+
+.secondary{
+  background:#fff;
+  border:1px solid var(--line);
+  color:#5e5762;
+}
+
+/* =========================
+   HERO VISUAL
+========================= */
+
+.hero-visual{
+  position:relative;
+  min-height:440px;
+}
+
+.float-card{
+  position:absolute;
+  z-index:3;
+  padding:13px 16px;
+  border-radius:18px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 16px 35px rgba(60,25,55,.10);
+  font-size:10px;
+  font-weight:700;
+  animation:floatCard 3.5s ease-in-out infinite;
+}
+
+.float-card strong{
+  display:block;
+  color:var(--pink);
+  font-family:"Baloo 2";
+  font-size:17px;
+}
+
+.float-1{
+  top:45px;
+  left:-12px;
+}
+
+.float-2{
+  right:-5px;
+  top:125px;
+  animation-delay:1s;
+}
+
+.float-3{
+  bottom:40px;
+  left:10px;
+  animation-delay:1.7s;
+}
+
+@keyframes floatCard{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
+.main-card{
+  position:absolute;
+  inset:45px 25px 35px 35px;
+  padding:25px;
+  border-radius:35px;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.main-card:before{
+  content:"";
+  position:absolute;
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  right:-90px;
+  top:-90px;
+  background:rgba(255,92,168,.14);
+}
+
+.main-card:after{
+  content:"";
+  position:absolute;
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  left:-80px;
+  bottom:-80px;
+  background:rgba(168,117,255,.12);
+}
+
+.preview-head{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.preview-brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-family:"Baloo 2";
+  font-size:19px;
+  font-weight:800;
+}
+
+.preview-logo{
+  width:39px;
+  height:39px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+}
+
+.online{
+  padding:6px 9px;
+  border-radius:99px;
+  background:#effff5;
+  color:var(--green);
+  font-size:9px;
+  font-weight:800;
+}
+
+.preview-body{
+  position:relative;
+  z-index:2;
+  margin-top:25px;
+  padding:20px;
+  border-radius:23px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+
+.preview-body small{
+  color:var(--muted);
+  font-size:9px;
+}
+
+.preview-body h2{
+  font-family:"Baloo 2";
+  font-size:36px;
+  line-height:1;
+  margin:4px 0 17px;
+}
+
+.preview-products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+}
+
+.preview-product{
+  padding:12px 4px;
+  text-align:center;
+  border-radius:13px;
+  background:#fff5fa;
+}
+
+.preview-product b{
+  display:block;
+  font-size:12px;
+}
+
+.preview-product span{
+  color:var(--pink);
+  font-size:9px;
+}
+
+/* =========================
+   HOME CARDS
+========================= */
+
+.head{
+  max-width:650px;
+  text-align:center;
+  margin:0 auto 28px;
+}
+
+.head h2{
+  font-family:"Baloo 2";
+  font-size:39px;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.head p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.card{
+  padding:22px;
+  border-radius:22px;
+  background:rgba(255,255,255,.9);
+  border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(60,30,55,.04);
+}
+
+.card-icon{
+  width:49px;
+  height:49px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:#fff1f8;
+  font-size:21px;
+  margin-bottom:14px;
+}
+
+.card h3{
+  font-family:"Baloo 2";
+  font-size:21px;
+}
+
+.card p{
+  margin-top:3px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+}
+
+/* =========================
+   PROMO STRIP
+========================= */
+
+.promo-strip{
+  margin:55px 0;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  align-items:center;
+  padding:25px;
+  border-radius:27px;
+  color:#fff;
+  background:linear-gradient(110deg,#ff5ca8,#a875ff);
+  box-shadow:0 18px 45px rgba(255,92,168,.18);
+}
+
+.promo-strip h3{
+  font-family:"Baloo 2";
+  font-size:27px;
+}
+
+.promo-strip p{
+  opacity:.88;
+  font-size:11px;
+  margin-top:2px;
+}
+
+.promo-strip .btn{
+  background:#fff;
+  color:var(--pink);
+}
+
+/* =========================
+   TOPUP
+========================= */
+
+.topup-wrap{
+  max-width:870px;
+  margin:auto;
+}
+
+.box{
+  padding:27px;
+  border-radius:28px;
+  background:rgba(255,255,255,.93);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+
+.box-title{
+  font-family:"Baloo 2";
+  font-size:29px;
+  line-height:1;
+}
+
+.box-sub{
+  color:var(--muted);
+  font-size:10px;
+  margin:6px 0 20px;
+}
+
+.methods{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:26px;
+}
+
+.method{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#fff;
+  text-align:left;
+  transition:.2s;
+}
+
+.method.selected{
+  background:#fff3f9;
+  border-color:#ff79b8;
+  box-shadow:0 0 0 3px rgba(255,92,168,.06);
+}
+
+.method-icon{
+  font-size:23px;
+  margin-bottom:6px;
+}
+
+.method b{
+  display:block;
+  font-size:13px;
+}
+
+.method span{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  margin-top:2px;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  margin-bottom:26px;
+}
+
+.product{
+  position:relative;
+  padding:16px 7px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:17px;
+  text-align:center;
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-2px);
+}
+
+.product.selected{
+  border-color:var(--pink);
+  background:#fff4f9;
+  box-shadow:0 5px 18px rgba(255,92,168,.09);
+}
+
+.product b{
+  font-family:"Baloo 2";
+  font-size:22px;
+  display:block;
+  line-height:1;
+}
+
+.product small{
+  color:#a49ca7;
+  font-size:8px;
+}
+
+.product .price{
+  margin-top:6px;
+  color:var(--pink);
+  font-size:11px;
+  font-weight:800;
+}
+
+.popular{
+  position:absolute;
+  top:-8px;
+  right:5px;
+  padding:3px 6px;
+  border-radius:99px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:#fff;
+  font-size:7px;
+  font-weight:800;
+}
+
+/* =========================
+   FIELDS
+========================= */
+
+.field{
+  margin-bottom:15px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:7px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:13px;
+  border-radius:14px;
+  border:1px solid #e9e1e7;
+  background:#fdfbfc;
+  outline:none;
+  font-size:12px;
+}
+
+.field input:focus,
+.field select:focus{
+  border-color:#ff80bc;
+  box-shadow:0 0 0 4px rgba(255,92,168,.06);
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+  display:none;
+  margin-bottom:15px;
+}
+
+.profile.show{
+  display:block;
+}
+
+.profile-card{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:14px;
+  border-radius:17px;
+  background:#faf8fb;
+  border:1px solid var(--line);
+}
+
+.profile-avatar{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:#fff;
+  font-family:"Baloo 2";
+  font-size:22px;
+  font-weight:800;
+}
+
+.profile h4{
+  font-size:13px;
+}
+
+.profile p{
+  color:var(--muted);
+  font-size:9px;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+  padding:13px 15px;
+  border-radius:15px;
+  background:#fff6fa;
+  border:1px solid #ffe0ed;
+  color:#755e6a;
+  font-size:10px;
+  line-height:1.7;
+  margin:14px 0;
+}
+
+.notice strong{
+  color:#56434e;
+}
+
+.warning{
+  background:#fff8ef;
+  border-color:#ffe6c9;
+  color:#7c674e;
+}
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout-wrap{
+  max-width:870px;
+  margin:auto;
+}
+
+.checkout-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.summary{
+  padding:18px;
+  background:#faf8fb;
+  border:1px solid var(--line);
+  border-radius:19px;
+}
+
+.summary h3{
+  font-family:"Baloo 2";
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid #eee7ec;
+  font-size:10px;
+}
+
+.row:last-child{
+  border:0;
+  font-size:14px;
+  font-weight:800;
+}
+
+.payment-title{
+  font-family:"Baloo 2";
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.payments{
+  display:grid;
+  gap:9px;
+}
+
+.payment{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:#fff;
+  text-align:left;
+}
+
+.payment.selected{
+  background:#fff3f9;
+  border-color:var(--pink);
+}
+
+.payment-icon{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:#f7f3f6;
+  font-weight:800;
+}
+
+.payment b{
+  display:block;
+  font-size:11px;
+}
+
+.payment small{
+  color:var(--muted);
+  font-size:8px;
+}
+
+/* =========================
+   TUTORIAL
+========================= */
+
+.steps{
+  display:grid;
+  gap:10px;
+}
+
+.step{
+  display:flex;
+  gap:13px;
+  padding:15px;
+  border-radius:17px;
+  background:#faf8fb;
+  border:1px solid var(--line);
+}
+
+.step-number{
+  flex:0 0 35px;
+  width:35px;
+  height:35px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  font-weight:800;
+  font-size:11px;
+}
+
+.step h4{
+  font-size:12px;
+  margin-bottom:3px;
+}
+
+.step p{
+  color:var(--muted);
+  font-size:9px;
+  line-height:1.6;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status-wrap{
+  max-width:600px;
+  margin:auto;
+}
+
+.status-box{
+  text-align:center;
+}
+
+.status-icon{
+  width:70px;
+  height:70px;
+  margin:0 auto 15px;
+  display:grid;
+  place-items:center;
+  border-radius:23px;
+  background:#fff0f7;
+  font-size:29px;
+}
+
+.order-code{
+  display:inline-block;
+  margin:12px 0;
+  padding:9px 14px;
+  border-radius:11px;
+  background:#f4f0f4;
+  font-family:monospace;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.status-result{
+  text-align:left;
+  margin-top:15px;
+  padding:15px;
+  border-radius:17px;
+  background:#faf8fb;
+  border:1px solid var(--line);
+}
+
+/* =========================
+   POPUP
+========================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+  background:rgba(35,25,34,.48);
+  backdrop-filter:blur(8px);
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+}
+
+.overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.popup{
+  width:min(440px,100%);
+  max-height:90vh;
+  overflow:auto;
+  position:relative;
+  border-radius:29px;
+  background:#fff;
+  box-shadow:0 30px 100px rgba(30,15,30,.28);
+  transform:translateY(12px) scale(.96);
+  transition:.25s;
+}
+
+.overlay.show .popup{
+  transform:none;
+}
+
+.popup-close{
+  position:absolute;
+  z-index:5;
+  right:13px;
+  top:13px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:11px;
+  background:rgba(255,255,255,.9);
+  font-size:18px;
+}
+
+.popup-image{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  display:block;
+  background:linear-gradient(135deg,#ffe0ed,#eee2ff);
+}
+
+.popup-content{
+  padding:22px;
+}
+
+.popup h2{
+  font-family:"Baloo 2";
+  font-size:29px;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.popup p{
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.7;
+}
+
+.popup-warning{
+  margin:17px 0;
+  padding:15px;
+  border-radius:17px;
+  background:#fff8ef;
+  border:1px solid #ffe4c5;
+  color:#735e49;
+  font-size:10px;
+  line-height:1.7;
+}
+
+.cooldown{
+  width:100%;
+  margin-top:10px;
+  border:0;
+  border-radius:14px;
+  padding:13px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  font-size:11px;
+  font-weight:800;
+}
+
+.cooldown:disabled{
+  background:#d8d2d7;
+  color:#fff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:30px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:9px;
+}
+
+.footer{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  z-index:999;
+  left:50%;
+  bottom:20px;
+  transform:translate(-50%,120px);
+  padding:12px 17px;
+  border-radius:14px;
+  background:#29242c;
+  color:#fff;
+  font-size:10px;
+  transition:.3s;
+}
+
+.toast.show{
+  transform:translate(-50%,0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+  .navlinks{
+    display:none;
+    position:absolute;
+    top:72px;
+    left:14px;
+    right:14px;
+    padding:8px;
+    border-radius:18px;
+    background:rgba(255,255,255,.97);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+
+  .navlinks.open{
+    display:grid;
+  }
+
+  .navlinks button{
+    text-align:left;
+    padding:12px;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    gap:30px;
+    min-height:auto;
+    padding:15px 0 35px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .hero-visual{
+    min-height:390px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .checkout-grid{
+    grid-template-columns:1fr;
+  }
+
+  .promo-strip{
+    grid-template-columns:1fr;
+  }
+
+  .box{
+    padding:20px;
+  }
+
+  .footer{
+    flex-direction:column;
+  }
+}
+
+@media(max-width:450px){
+
+  .methods{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:49px;
+  }
+
+  .main-card{
+    inset:35px 10px 30px 10px;
+  }
+
+  .float-1{
+    left:0;
+  }
+
+  .float-2{
+    right:0;
+  }
+
+  .actions .btn{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+  <div class="container nav">
+
+    <a class="brand" href="#" onclick="go('home');return false;">
+      <div class="logo">R</div>
+      Renzz Store
+    </a>
+
+    <button class="menu" onclick="toggleMenu()">☰</button>
+
+    <nav class="navlinks" id="navlinks">
+      <button onclick="go('home')">Home</button>
+      <button onclick="go('topup')">Top Up</button>
+      <button onclick="go('tutorial')">Tutorial</button>
+      <button onclick="go('status')">Status Order</button>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="page active" id="home">
+
+  <div class="container">
+
+    <div class="hero">
+
+      <div>
+
+        <div class="hero-badge">
+          ✦ RENZZ STORE • ROBLOX TOP UP
+        </div>
+
+        <h1>
+          Top Up<br>
+          <span class="gradient">Robux.</span>
+        </h1>
+
+        <p>
+          Pilih nominal Robux, gunakan metode yang kamu mau,
+          dan lanjutkan pembayaran dengan flow yang simpel.
+          Dibuat nyaman buat pengguna HP maupun desktop.
+        </p>
+
+        <div class="actions">
+
+          <button class="btn primary" onclick="go('topup')">
+            Top Up Sekarang →
+          </button>
+
+          <button class="btn secondary" onclick="go('tutorial')">
+            📖 Cara Top Up
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="float-card float-1">
+          💎 Harga mulai
+          <strong>Rp2.000</strong>
+        </div>
+
+        <div class="float-card float-2">
+          ⚡ Pilihan
+          <strong>Instant</strong>
+        </div>
+
+        <div class="float-card float-3">
+          💗 Renzz
+          <strong>Store</strong>
+        </div>
+
+
+        <div class="main-card">
+
+          <div class="preview-head">
+
+            <div class="preview-brand">
+              <div class="preview-logo">R</div>
+              Renzz Store
+            </div>
+
+            <div class="online">
+              ● ONLINE
+            </div>
+
+          </div>
+
+
+          <div class="preview-body">
+
+            <small>Pilihan Robux</small>
+
+            <h2>500 Robux</h2>
+
+            <div class="preview-products">
+
+              <div class="preview-product">
+                💎
+                <b>80</b>
+                <span>Rp15K</span>
+              </div>
+
+              <div class="preview-product">
+                💎
+                <b>500</b>
+                <span>Rp80K</span>
+              </div>
+
+              <div class="preview-product">
+                💎
+                <b>1K</b>
+                <span>Rp160K</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FEATURE -->
+
+    <div class="head">
+
+      <h2>Top Up Tanpa Ribet</h2>
+
+      <p>
+        Flow dibuat pendek supaya pembeli nggak muter-muter
+        cari tombol yang mereka butuhkan.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">💎</div>
+        <h3>Pilih Robux</h3>
+        <p>
+          Tersedia berbagai nominal untuk kebutuhanmu.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💳</div>
+        <h3>Pilih Pembayaran</h3>
+        <p>
+          Pilih metode pembayaran yang tersedia saat checkout.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📦</div>
+        <h3>Cek Order</h3>
+        <p>
+          Gunakan kode order untuk melihat detail pesanan.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- PROMO STRIP -->
+
+    <div class="promo-strip">
+
+      <div>
+        <h3>Butuh Robux? 💗</h3>
+        <p>
+          Pilih nominal dan metode top up sekarang.
+        </p>
+      </div>
+
+      <button class="btn" onclick="go('topup')">
+        Mulai →
+      </button>
+
+    </div>
+
+
+    <!-- TRUST -->
+
+    <div class="head">
+
+      <h2>Dibuat Buat Kamu</h2>
+
+      <p>
+        Tampilan ringan, clean, dan tetap cute tanpa terlalu ramai.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>Mobile Friendly</h3>
+        <p>
+          Nyaman dibuka dari Android, iPhone, tablet maupun PC.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3>Clean Design</h3>
+        <p>
+          Warna soft pink dan purple dengan font bubble.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>Privasi</h3>
+        <p>
+          Jangan pernah memasukkan password, cookie,
+          OTP, atau kode 2FA ke toko.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TOPUP ================= -->
+
+<section class="page" id="topup">
+
+  <div class="container">
+
+    <div class="head">
+
+      <h2>Pilih Top Up</h2>
+
+      <p>
+        Pilih metode terlebih dahulu untuk melihat harga yang tersedia.
+      </p>
+
+    </div>
+
+
+    <div class="topup-wrap">
+
+      <div class="box">
+
+        <div class="box-title">
+          01. Metode Top Up
+        </div>
+
+        <div class="box-sub">
+          Harga setiap metode bisa berbeda.
+        </div>
+
+
+        <div class="methods">
+
+          <button
+            class="method selected"
+            id="methodUsername"
+            onclick="setMethod('username')">
+
+            <div class="method-icon">👤</div>
+
+            <b>Via Username</b>
+
+            <span>
+              Lebih murah • mulai 80 Robux
+            </span>
+
+          </button>
+
+
+          <button
+            class="method"
+            id="methodGamepass"
+            onclick="setMethod('gamepass')">
+
+            <div class="method-icon">🎮</div>
+
+            <b>Via Game Pass</b>
+
+            <span>
+              Gunakan Game Pass milikmu
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <div class="box-title">
+          02. Pilih Robux
+        </div>
+
+        <div class="box-sub">
+          Pilih nominal yang kamu inginkan.
+        </div>
+
+
+        <div
+          class="products"
+          id="products">
+        </div>
+
+
+        <!-- USERNAME -->
+
+        <div id="usernameFields">
+
+          <div class="box-title">
+            03. Username Roblox
+          </div>
+
+          <div class="box-sub">
+            Masukkan username lalu cek profil.
+          </div>
+
+
+          <div class="field">
+
+            <label>Username Roblox</label>
+
+            <input
+              id="username"
+              type="text"
+              placeholder="Contoh: Linkmon99"
+              autocomplete="off">
+
+          </div>
+
+
+          <button
+            class="btn secondary"
+            style="width:100%;margin-bottom:14px"
+            onclick="lookupUser()">
+
+            🔎 Cek Username
+
+          </button>
+
+
+          <div
+            class="profile"
+            id="profile">
+          </div>
+
+
+          <button
+            class="btn primary"
+            style="width:100%"
+            onclick="continueUsername()">
+
+            Lanjutkan →
+
+          </button>
+
+        </div>
+
+
+        <!-- GAMEPASS -->
+
+        <div
+          id="gamepassFields"
+          style="display:none">
+
+          <div class="box-title">
+            03. Game Pass
+          </div>
+
+          <div class="box-sub">
+            Masukkan data Game Pass.
+          </div>
+
+
+          <div class="field">
+
+            <label>Username Roblox</label>
+
+            <input
+              id="gpUsername"
+              type="text"
+              placeholder="Username Roblox">
+
+          </div>
+
+
+          <div class="field">
+
+            <label>Game Pass ID / Link</label>
+
+            <input
+              id="gamepass"
+              type="text"
+              placeholder="Masukkan ID atau link Game Pass">
+
+          </div>
+
+
+          <div class="notice">
+
+            Pastikan Game Pass memang dibuat pada akun/
+            Experience yang kamu kelola.
+
+          </div>
+
+
+          <button
+            class="btn secondary"
+            style="width:100%;margin-bottom:12px"
+            onclick="go('tutorial')">
+
+            📖 Belum tahu cara membuat Game Pass?
+
+          </button>
+
+
+          <button
+            class="btn primary"
+            style="width:100%"
+            onclick="continueGamepass()">
+
+            Lanjutkan →
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<section class="page" id="checkout">
+
+  <div class="container">
+
+    <div class="head">
+
+      <h2>Checkout</h2>
+
+      <p>
+        Pastikan detail pesanan sudah benar.
+      </p>
+
+    </div>
+
+
+    <div class="checkout-wrap">
+
+      <div class="box">
+
+        <div class="checkout-grid">
+
+          <div>
+
+            <div class="summary">
+
+              <h3>Detail Pesanan</h3>
+
+              <div class="row">
+                <span>Username</span>
+                <strong id="cUsername">-</strong>
+              </div>
+
+              <div class="row">
+                <span>Metode</span>
+                <strong id="cMethod">-</strong>
+              </div>
+
+              <div class="row">
+                <span>Robux</span>
+                <strong id="cRobux">-</strong>
+              </div>
+
+              <div class="row">
+                <span>Total</span>
+                <strong id="cPrice">Rp0</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="payment-title">
+              Metode Pembayaran
+            </div>
+
+
+            <div class="payments">
+
+              <button
+                class="payment selected"
+                onclick="choosePayment(this,'QRIS')">
+
+                <div class="payment-icon">
+                  ▦
+                </div>
+
+                <div>
+                  <b>QRIS</b>
+                  <small>
+                    Scan menggunakan aplikasi pembayaran
+                  </small>
+                </div>
+
+              </button>
+
+
+              <button
+                class="payment"
+                onclick="choosePayment(this,'DANA')">
+
+                <div class="payment-icon">
+                  D
+                </div>
+
+                <div>
+                  <b>DANA</b>
+                  <small>
+                    Pembayaran melalui DANA
+                  </small>
+                </div>
+
+              </button>
+
+
+              <button
+                class="payment"
+                onclick="choosePayment(this,'GoPay')">
+
+                <div class="payment-icon">
+                  G
+                </div>
+
+                <div>
+                  <b>GoPay</b>
+                  <small>
+                    Pembayaran melalui GoPay
+                  </small>
+                </div>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="notice">
+
+          Jangan mengirim password, cookie, OTP,
+          atau kode 2FA kepada siapa pun.
+          Renzz Store tidak memerlukannya.
+
+        </div>
+
+
+        <button
+          class="btn primary"
+          style="width:100%"
+          onclick="createOrder()">
+
+          Buat Pesanan →
+
+        </button>
+
+
+        <br><br>
+
+
+        <button
+          class="btn secondary"
+          style="width:100%"
+          onclick="go('topup')">
+
+          ← Kembali
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TUTORIAL ================= -->
+
+<section class="page" id="tutorial">
+
+  <div class="container">
+
+    <div class="head">
+
+      <h2>Game Pass Tutorial</h2>
+
+      <p>
+        Panduan singkat menyiapkan Game Pass.
+      </p>
+
+    </div>
+
+
+    <div class="topup-wrap">
+
+      <div class="box">
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-number">1</div>
+
+            <div>
+              <h4>Buka Roblox</h4>
+              <p>
+                Masuk melalui aplikasi atau situs resmi Roblox.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">2</div>
+
+            <div>
+              <h4>Pilih Experience</h4>
+              <p>
+                Gunakan Experience yang memang kamu kelola.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">3</div>
+
+            <div>
+              <h4>Buat Game Pass</h4>
+              <p>
+                Gunakan fitur Game Pass yang tersedia pada
+                Creator Dashboard Roblox.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">4</div>
+
+            <div>
+              <h4>Atur Harga</h4>
+              <p>
+                Masukkan harga sesuai nominal transaksi
+                dan ketentuan platform yang berlaku.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">5</div>
+
+            <div>
+              <h4>Masukkan ID</h4>
+              <p>
+                Salin ID atau link Game Pass dan masukkan
+                pada halaman top up.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="notice warning">
+
+          Jangan pernah memberikan password,
+          cookie `.ROBLOSECURITY`, OTP, atau kode 2FA.
+
+        </div>
+
+
+        <button
+          class="btn primary"
+          style="width:100%"
+          onclick="go('topup')">
+
+          Mulai Top Up →
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= STATUS ================= -->
+
+<section class="page" id="status">
+
+  <div class="container">
+
+    <div class="head">
+
+      <h2>Status Order</h2>
+
+      <p>
+        Masukkan kode pesananmu.
+      </p>
+
+    </div>
+
+
+    <div class="status-wrap">
+
+      <div class="box status-box">
+
+        <div class="status-icon">
+          📦
+        </div>
+
+
+        <div class="field">
+
+          <input
+            id="orderCode"
+            type="text"
+            placeholder="Contoh: RZ123456"
+            style="text-align:center">
+
+        </div>
+
+
+        <button
+          class="btn primary"
+          style="width:100%"
+          onclick="checkOrder()">
+
+          Cek Pesanan
+
+        </button>
+
+
+        <div id="statusResult"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container footer">
+
+    <div>
+
+      <strong
+        style="
+        font-family:'Baloo 2';
+        font-size:18px;
+        color:#342e36">
+
+        Renzz Store
+
+      </strong>
+
+      <br>
+
+      Roblox Top Up Service
+
+    </div>
+
+
+    <div>
+      © 2026 Renzz Store
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- =========================================================
+     POPUP PROMO
+========================================================= -->
+
+<div
+  class="overlay"
+  id="promoPopup">
+
+  <div class="popup">
+
+    <button
+      class="popup-close"
+      onclick="closePromo()">
+
+      ×
+
+    </button>
+
+
+    <img
+      id="promoImage"
+      class="popup-image"
+      alt="Promo Renzz Store">
+
+
+    <div class="popup-content">
+
+      <h2>
+        Ada yang baru 💗
+      </h2>
+
+      <p>
+        Cek promo dan pilihan Robux terbaru
+        di Renzz Store.
+      </p>
+
+
+      <div class="promo-strip"
+           style="
+           margin:17px 0;
+           display:block;
+           padding:15px;
+           box-shadow:none">
+
+        <h3 style="font-size:21px">
+          Renzz Store
+        </h3>
+
+        <p>
+          Roblox Top Up • Cute • Simple
+        </p>
+
+      </div>
+
+
+      <button
+        class="btn primary"
+        style="width:100%"
+        onclick="closePromo();go('topup')">
+
+        Lihat Top Up →
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     POPUP USERNAME 18+
+========================================================= -->
+
+<div
+  class="overlay"
+  id="agePopup">
+
+  <div class="popup">
+
+    <button
+      class="popup-close"
+      onclick="closeAgePopup()">
+
+      ×
+
+    </button>
+
+
+    <div class="popup-content">
+
+      <div
+        style="
+        width:65px;
+        height:65px;
+        display:grid;
+        place-items:center;
+        border-radius:21px;
+        background:#fff0f7;
+        font-size:28px;
+        margin-bottom:15px">
+
+        🔞
+
+      </div>
+
+
+      <h2>
+        Perhatian
+      </h2>
+
+
+      <p>
+        Sebelum menggunakan metode
+        <strong>Via Username</strong>, pastikan
+        akun penerima memenuhi persyaratan usia
+        <strong>18+</strong> yang ditetapkan
+        untuk metode transaksi toko ini.
+      </p>
+
+
+      <div class="popup-warning">
+
+        <strong>Mohon diperhatikan:</strong><br>
+
+        Dengan melanjutkan, pastikan kamu memenuhi
+        persyaratan tersebut. Jangan memberikan
+        password, cookie, OTP, atau kode 2FA.
+
+      </div>
+
+
+      <button
+        class="cooldown"
+        id="understandButton"
+        disabled>
+
+        Tunggu 5 detik...
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div
+  class="toast"
+  id="toast">
+</div>
+
+
+<script>
+
+/* =========================================================
+   GANTI GAMBAR POPUP DI SINI
+   ========================================================= */
+
+const PROMO_IMAGE =
+  "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=85";
+
+
+/* =========================================================
+   HARGA VIA USERNAME
+   80 ROBUX = 15.000
+   NAIK PER 10 ROBUX
+   ========================================================= */
+
+const USERNAME_PRODUCTS = [
+
+  {robux:80,price:15000},
+
+  {robux:90,price:17000},
+
+  {robux:100,price:19000},
+
+  {robux:110,price:21000},
+
+  {robux:120,price:23000},
+
+  {robux:130,price:25000},
+
+  {robux:140,price:27000},
+
+  {robux:150,price:29000},
+
+  {robux:160,price:31000},
+
+  {robux:170,price:33000},
+
+  {robux:180,price:35000},
+
+  {robux:190,price:37000},
+
+  {robux:200,price:39000},
+
+  {robux:250,price:48000},
+
+  {robux:300,price:57000},
+
+  {robux:400,price:76000},
+
+  {robux:500,price:95000},
+
+  {robux:600,price:114000},
+
+  {robux:700,price:133000},
+
+  {robux:800,price:152000},
+
+  {robux:900,price:171000},
+
+  {robux:1000,price:190000}
+
+];
+
+
+/* =========================================================
+   HARGA VIA GAME PASS
+   ========================================================= */
+
+const GAMEPASS_PRODUCTS = [
+
+  {robux:100,price:20000},
+
+  {robux:200,price:40000},
+
+  {robux:300,price:60000},
+
+  {robux:500,price:100000,popular:true},
+
+  {robux:800,price:160000},
+
+  {robux:1000,price:200000},
+
+  {robux:1500,price:300000},
+
+  {robux:2000,price:400000}
+
+];
+
+
+/* =========================================================
+   API
+========================================================= */
+
+const ROBLOX_API =
+  "https://api.nexadev.my.id/api/roblox?username=";
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let selectedMethod =
+  "username";
+
+let selectedProduct =
+  USERNAME_PRODUCTS[2];
+
+let selectedPayment =
+  "QRIS";
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function rupiah(number){
+
+  return "Rp" +
+    Number(number)
+      .toLocaleString("id-ID");
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+function toast(message){
+
+  const el =
+    document.getElementById("toast");
+
+  el.textContent =
+    message;
+
+  el.classList.add("show");
+
+  setTimeout(()=>{
+
+    el.classList.remove("show");
+
+  },2500);
+
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+function go(page){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(el=>{
+      el.classList.remove("active");
+    });
+
+
+  const target =
+    document.getElementById(page);
+
+
+  if(target){
+
+    target.classList.add("active");
+
+  }
+
+
+  document
+    .getElementById("navlinks")
+    .classList.remove("open");
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function toggleMenu(){
+
+  document
+    .getElementById("navlinks")
+    .classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+function renderProducts(){
+
+  const list =
+    selectedMethod === "username"
+      ? USERNAME_PRODUCTS
+      : GAMEPASS_PRODUCTS;
+
+
+  const container =
+    document.getElementById("products");
+
+
+  container.innerHTML =
+    list.map((item,index)=>`
+
+      <button
+        class="product ${
+          index ===
+          list.indexOf(selectedProduct)
+          ? "selected"
+          : ""
+        }"
+        onclick="selectProduct(${index})">
+
+        ${
+          item.popular
+          ?
+          `<div class="popular">
+             POPULER
+           </div>`
+          :
+          ""
+        }
+
+        <b>
+          ${item.robux.toLocaleString("id-ID")}
+        </b>
+
+        <small>
+          ROBUX
+        </small>
+
+        <div class="price">
+          ${rupiah(item.price)}
+        </div>
+
+      </button>
+
+    `).join("");
+
+}
+
+
+function selectProduct(index){
+
+  const list =
+    selectedMethod === "username"
+      ? USERNAME_PRODUCTS
+      : GAMEPASS_PRODUCTS;
+
+
+  selectedProduct =
+    list[index];
+
+
+  renderProducts();
+
+}
+
+
+/* =========================================================
+   METHOD
+========================================================= */
+
+function setMethod(method){
+
+  selectedMethod =
+    method;
+
+
+  if(method==="username"){
+
+    selectedProduct =
+      USERNAME_PRODUCTS[2];
+
+  }else{
+
+    selectedProduct =
+      GAMEPASS_PRODUCTS[0];
+
+  }
+
+
+  document
+    .getElementById("methodUsername")
+    .classList.toggle(
+      "selected",
+      method==="username"
+    );
+
+
+  document
+    .getElementById("methodGamepass")
+    .classList.toggle(
+      "selected",
+      method==="gamepass"
+    );
+
+
+  document
+    .getElementById("usernameFields")
+    .style.display =
+      method==="username"
+      ? "block"
+      : "none";
+
+
+  document
+    .getElementById("gamepassFields")
+    .style.display =
+      method==="gamepass"
+      ? "block"
+      : "none";
+
+
+  renderProducts();
+
+}
+
+
+/* =========================================================
+   USERNAME LOOKUP
+========================================================= */
+
+async function lookupUser(){
+
+  const input =
+    document.getElementById("username");
+
+
+  const username =
+    input.value.trim();
+
+
+  const profile =
+    document.getElementById("profile");
+
+
+  if(!username){
+
+    toast(
+      "Masukkan username Roblox dulu."
+    );
+
+    return;
+
+  }
+
+
+  profile.className =
+    "profile show";
+
+
+  profile.innerHTML = `
+    <div class="notice">
+      🔎 Sedang mencari profil...
+    </div>
+  `;
+
+
+  try{
+
+    const response =
+      await fetch(
+        ROBLOX_API +
+        encodeURIComponent(username)
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "API error"
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    const root =
+      data?.result ||
+      data?.data ||
+      data;
+
+
+    const name =
+      root?.name ||
+      root?.username ||
+      username;
+
+
+    const display =
+      root?.displayName ||
+      root?.display_name ||
+      name;
+
+
+    const id =
+      root?.id ||
+      root?.userId ||
+      root?.user_id ||
+      "-";
+
+
+    profile.innerHTML = `
+
+      <div class="profile-card">
+
+        <div class="profile-avatar">
+
+          ${escapeHTML(
+            String(display)
+              .charAt(0)
+              .toUpperCase()
+          )}
+
+        </div>
+
+        <div>
+
+          <h4>
+            ${escapeHTML(name)}
+          </h4>
+
+          <p>
+            ${escapeHTML(display)}
+          </p>
+
+          <p>
+            User ID:
+            ${escapeHTML(id)}
+          </p>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+  }catch(error){
+
+    profile.innerHTML = `
+
+      <div class="notice warning">
+
+        Profil belum berhasil ditemukan.
+        Cek username dan coba lagi.
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================================================
+   USERNAME AGE POPUP
+========================================================= */
+
+function continueUsername(){
+
+  const username =
+    document
+      .getElementById("username")
+      .value.trim();
+
+
+  if(!username){
+
+    toast(
+      "Masukkan username Roblox."
+    );
+
+    return;
+
+  }
+
+
+  openAgePopup();
+
+}
+
+
+function openAgePopup(){
+
+  const popup =
+    document.getElementById("agePopup");
+
+
+  const button =
+    document.getElementById(
+      "understandButton"
+    );
+
+
+  popup.classList.add("show");
+
+
+  button.disabled =
+    true;
+
+
+  let seconds =
+    5;
+
+
+  button.textContent =
+    `Tunggu ${seconds} detik...`;
+
+
+  const timer =
+    setInterval(()=>{
+
+      seconds--;
+
+
+      if(seconds<=0){
+
+        clearInterval(timer);
+
+        button.disabled =
+          false;
+
+        button.textContent =
+          "Saya Mengerti ✓";
+
+
+        button.onclick =
+          ()=>{
+
+            closeAgePopup();
+
+            finishUsername();
+
+          };
+
+      }else{
+
+        button.textContent =
+          `Tunggu ${seconds} detik...`;
+
+      }
+
+    },1000);
+
+}
+
+
+function closeAgePopup(){
+
+  document
+    .getElementById("agePopup")
+    .classList.remove("show");
+
+}
+
+
+function finishUsername(){
+
+  const username =
+    document
+      .getElementById("username")
+      .value.trim();
+
+
+  document
+    .getElementById("cUsername")
+    .textContent =
+      username;
+
+
+  document
+    .getElementById("cMethod")
+    .textContent =
+      "Via Username";
+
+
+  document
+    .getElementById("cRobux")
+    .textContent =
+      selectedProduct.robux
+        .toLocaleString("id-ID")
+      + " Robux";
+
+
+  document
+    .getElementById("cPrice")
+    .textContent =
+      rupiah(
+        selectedProduct.price
+      );
+
+
+  go("checkout");
+
+}
+
+
+/* =========================================================
+   GAMEPASS
+========================================================= */
+
+function continueGamepass(){
+
+  const username =
+    document
+      .getElementById("gpUsername")
+      .value.trim();
+
+
+  const gamepass =
+    document
+      .getElementById("gamepass")
+      .value.trim();
+
+
+  if(!username){
+
+    toast(
+      "Masukkan username Roblox."
+    );
+
+    return;
+
+  }
+
+
+  if(!gamepass){
+
+    toast(
+      "Masukkan ID atau link Game Pass."
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("cUsername")
+    .textContent =
+      username;
+
+
+  document
+    .getElementById("cMethod")
+    .textContent =
+      "Via Game Pass";
+
+
+  document
+    .getElementById("cRobux")
+    .textContent =
+      selectedProduct.robux
+        .toLocaleString("id-ID")
+      + " Robux";
+
+
+  document
+    .getElementById("cPrice")
+    .textContent =
+      rupiah(
+        selectedProduct.price
+      );
+
+
+  go("checkout");
+
+}
+
+
+/* =========================================================
+   PAYMENT
+========================================================= */
+
+function choosePayment(
+  element,
+  payment
+){
+
+  document
+    .querySelectorAll(".payment")
+    .forEach(el=>{
+      el.classList.remove(
+        "selected"
+      );
+    });
+
+
+  element.classList.add(
+    "selected"
+  );
+
+
+  selectedPayment =
+    payment;
+
+}
+
+
+/* =========================================================
+   ORDER
+========================================================= */
+
+function createOrder(){
+
+  const username =
+    document
+      .getElementById("cUsername")
+      .textContent;
+
+
+  if(!username || username==="-"){
+
+    toast(
+      "Detail order belum lengkap."
+    );
+
+    return;
+
+  }
+
+
+  const code =
+    "RZ" +
+    Math.floor(
+      100000 +
+      Math.random()*900000
+    );
+
+
+  const order = {
+
+    code,
+
+    username,
+
+    method:
+      selectedMethod === "username"
+      ? "Via Username"
+      : "Via Game Pass",
+
+    robux:
+      selectedProduct.robux,
+
+    price:
+      selectedProduct.price,
+
+    payment:
+      selectedPayment,
+
+    status:
+      "Menunggu Pembayaran",
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+
+  localStorage.setItem(
+    "renzz_order_"+code,
+    JSON.stringify(order)
+  );
+
+
+  document
+    .getElementById("orderCode")
+    .value =
+      code;
+
+
+  toast(
+    "Pesanan berhasil dibuat!"
+  );
+
+
+  go("status");
+
+
+  setTimeout(
+    checkOrder,
+    300
+  );
+
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+function checkOrder(){
+
+  const code =
+    document
+      .getElementById("orderCode")
+      .value
+      .trim()
+      .toUpperCase();
+
+
+  const result =
+    document
+      .getElementById("statusResult");
+
+
+  if(!code){
+
+    toast(
+      "Masukkan kode order."
+    );
+
+    return;
+
+  }
+
+
+  const raw =
+    localStorage.getItem(
+      "renzz_order_"+code
+    );
+
+
+  if(!raw){
+
+    result.innerHTML = `
+
+      <div
+        class="notice warning"
+        style="margin-top:15px">
+
+        Order
+        <strong>
+          ${escapeHTML(code)}
+        </strong>
+        tidak ditemukan pada browser ini.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const order =
+    JSON.parse(raw);
+
+
+  result.innerHTML = `
+
+    <div class="status-result">
+
+      <div style="text-align:center">
+
+        <div class="order-code">
+
+          ${escapeHTML(order.code)}
+
+        </div>
+
+        <p style="
+          color:#58a875;
+          font-size:10px;
+          font-weight:800">
+
+          ● ${escapeHTML(order.status)}
+
+        </p>
+
+      </div>
+
+
+      <div class="row">
+        <span>Username</span>
+
+        <strong>
+          ${escapeHTML(order.username)}
+        </strong>
+      </div>
+
+
+      <div class="row">
+        <span>Metode</span>
+
+        <strong>
+          ${escapeHTML(order.method)}
+        </strong>
+      </div>
+
+
+      <div class="row">
+        <span>Robux</span>
+
+        <strong>
+          ${Number(order.robux)
+            .toLocaleString("id-ID")}
+        </strong>
+      </div>
+
+
+      <div class="row">
+        <span>Pembayaran</span>
+
+        <strong>
+          ${escapeHTML(order.payment)}
+        </strong>
+      </div>
+
+
+      <div class="row">
+        <span>Total</span>
+
+        <strong>
+          ${rupiah(order.price)}
+        </strong>
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   PROMO POPUP
+========================================================= */
+
+document
+  .getElementById("promoImage")
+  .src =
+    PROMO_IMAGE;
+
+
+function closePromo(){
+
+  document
+    .getElementById("promoPopup")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+renderProducts();
+
+
+window.addEventListener(
+  "load",
+  ()=>{
+
+    setTimeout(()=>{
+
+      if(
+        !sessionStorage
+          .getItem("renzz_promo")
+      ){
+
+        document
+          .getElementById("promoPopup")
+          .classList.add("show");
+
+
+        sessionStorage.setItem(
+          "renzz_promo",
+          "1"
+        );
+
+      }
+
+    },600);
+
+  }
+);
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(event.key==="Escape"){
+
+      closePromo();
+      closeAgePopup();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+  </html>
